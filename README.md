@@ -43,7 +43,6 @@ Alternatively, you can download the file and use any one of the following progra
 
 - **Registry Tweaks**:
   - Disables Microsoft Account creation.
-  - Disables User Account Control (UAC).
   - Disables lock screen and Windows Spotlight.
   - Customizes Start Menu and Taskbar settings.
   - Disables various Windows features like Cortana, Telemetry, Hibernation, and Location Tracking.
@@ -52,7 +51,7 @@ Alternatively, you can download the file and use any one of the following progra
   - Sets various performance and privacy-related registry keys.
 
 - **Runs Custom Scripts**:
-  - Executes PowerShell and batch scripts to apply additional tweaks and remove specific applications like Microsoft Edge, OneDrive, and Teams.
+  - Executes PowerShell and batch scripts to apply additional tweaks and remove specific applications like Microsoft Teams.
   - Loads and unloads the Default User registry hive to apply settings for new users.
 
 - **Service Configurations**:
@@ -83,12 +82,6 @@ In addition to the tweaks I added to the answer file, it also contains elements 
 It would be impossible for me to create a single answer file that will please everyone, so instead I'm supplying you with one that basically removes everything (except Windows Security) and is "over-tweaked" if you will, so you can just edit the file and remove the tweaks you don't want.
 
 Additionally, you can also add more tweaks or customizations if you have the know-how, but please note that I will not provide any form of support for any changes you make to the file.
-
-> [!NOTE]
-> Due to the removal of Microsoft Edge, I also include a Powershell Script on the Desktop called "LAUNCH-CTT-WINUTIL.ps1"
-
-- Make sure you are connected to the internet, then right click on this file and select Run with Powershell.
-- It will launch the Chris Titus Tech Windows Utility and you can use that to install your browser of choice (even Edge) and any other software for that matter.
 
 ## Usage Instructions
 

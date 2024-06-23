@@ -1,4 +1,19 @@
 # Updates
+## 23/6/2024
+First fork customization changes. Undoes some tweaks I don't want.
+
+- Don't auto end tasks
+- Don't disable delivery optimization
+- Don't disable push to install
+- Don't disable UAC
+- Don't remove Microsoft Edge
+- Don't remove OneDrive
+- Don't remove the Microsoft Store
+- Don't set the ultimate power plan as default
+- Remove eyecandy tweaks
+- Remove notification tweaks
+- Remove svchost tweaks
+
 ## 21/6/2024
 Removed the following entry as it removes the ability for the user to set a custom picture on the sign-in/lock screen and that wasn't my original purpose.
 
@@ -62,10 +77,7 @@ The following preinstalled bloatware apps are removed during the Windows install
 | `Microsoft.XboxSpeechToTextOverlay`               | Xbox Speech To Text Overlay                   |
 | `Microsoft.GamingApp`                             | Xbox Game Pass                                |
 | `Microsoft.YourPhone`                             | Phone Link                                    |
-| `Microsoft.MicrosoftEdge`                         | Microsoft Edge                                |
-| `Microsoft.MicrosoftEdge.Stable`                  | Microsoft Edge (Stable)                       |
 | `Microsoft.OneDrive`                              | OneDrive                                      |
-| `Microsoft.MicrosoftEdgeDevToolsClient`           | Microsoft Edge DevTools Client                |
 | `Microsoft.549981C3F5F10`                         | Cortana (Duplicate)                           |
 | `Microsoft.MixedReality.Portal`                   | Mixed Reality Portal                          |
 | `Microsoft.Windows.Ai.Copilot.Provider`           | Windows Copilot                               |
