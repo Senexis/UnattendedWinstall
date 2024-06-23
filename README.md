@@ -1,28 +1,30 @@
 # Unattended Windows Installation
 
+Adapted from [Memory’s Tech Tips’ Unattended Windows Installation](https://github.com/memstechtips/UnattendedWinstall), updated to suit me personal needs.
+
 ## Overview
 
 Microsoft allows you to add Answer Files (or Unattend files) to Windows ISO files, which can be used to modify Windows settings in the Windows Image (ISO) during the Windows Setup process.
 
-If you’ve ever used Rufus to create Windows installation media, and you saw options like “Remove Windows 11 Hardware Requirements” and “Disable Privacy Questions,” they achieve that by including an Answer file in the installation media.
+If you've ever used Rufus to create Windows installation media, and you saw options like "Remove Windows 11 Hardware Requirements" and "Disable Privacy Questions," they achieve that by including an Answer file in the installation media.
 
 More info on Answer files can be found here: [Microsoft Docs on Answer Files](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/update-windows-settings-and-scripts-create-your-own-answer-file-sxs?view=windows-11)
 
-I have created an answer file that I use to automate and streamline my Windows installs, and that’s what I’m sharing here with you. The answer file works on both Windows 10 and Windows 11, and I’ve tested it on the Pro version of Windows 10 22H2 and Windows 11 23H2 without any issues. I'm guessing it will also work on the Home versions of Windows, but you really should upgrade to Pro.
+I have created an answer file that I use to automate and streamline my Windows installs, and that's what I'm sharing here with you. The answer file works on both Windows 10 and Windows 11, and I've tested it on the Pro version of Windows 10 22H2 and Windows 11 23H2 without any issues. I'm guessing it will also work on the Home versions of Windows, but you really should upgrade to Pro.
 
-My motivation for this project is to get an “LTSC-like” or even better experience on the Pro and Home versions of Windows 10 and 11 without having to worry about getting an LTSC License.
+My motivation for this project is to get an "LTSC-like" or even better experience on the Pro and Home versions of Windows 10 and 11 without having to worry about getting an LTSC License.
 
 The answer file also automates many parts of the Windows setup and saves me a ton of time because I don't have to run a bunch of programs and scripts every time I do a fresh install of Windows, it's already debloated and customized with my preferred settings.
 
 ## Why should I use an answer file?
 
-In my opinion, the best thing about an answer file is that it’s very safe.
+In my opinion, the best thing about an answer file is that it's very safe.
 
 1. You can see every single change it will make to the Windows Image by inspecting the answer file.
 2. You insert it on the Official Windows 10 or 11 ISO directly from Microsoft, no need to download ISO files from Unofficial sources.
 3. It's not dependent on any third party tools and is an Official Microsoft Feature used to make Mass Windows Deployments easier.
 
-## What does Memory's UnattendedWinstall answer file do?
+## What does an unattended Windows-installer answer file do?
 
 I've taken the time to add descriptions to almost all of the tweaks in the [autounattended.xml](https://github.com/Senexis/UnattendedWinstall/blob/main/autounattend.xml) answer file, and you can inspect it right here on GitHub.
 
@@ -47,7 +49,7 @@ Alternatively, you can download the file and use any one of the following progra
   - Customizes Start Menu and Taskbar settings.
   - Disables various Windows features like Cortana, Telemetry, Hibernation, and Location Tracking.
   - Configures Windows Update to only install security updates and delay other updates for 2 years.
-  - Disables Windows Error Reporting, Delivery Optimization, and Remote Assistance.
+  - Disables Windows Error Reporting and Remote Assistance.
   - Sets various performance and privacy-related registry keys.
 
 - **Runs Custom Scripts**:
@@ -58,7 +60,7 @@ Alternatively, you can download the file and use any one of the following progra
   - Sets numerous Windows services to manual or disabled to optimize performance.
 
 - **Power Plan**:
-  - Enables and sets the Ultimate Performance power plan as active.
+  - Enables the Ultimate Performance power plan.
 
 - **Miscellaneous**:
   - Creates a desktop shortcut for Chris Titus Windows Utility.
@@ -92,7 +94,7 @@ In short, you need to include the [autounattended.xml](https://github.com/Senexi
 ### Method 1: Create a Bootable Windows Installation Media
 
 1. Download the [autounattended.xml](https://github.com/Senexis/UnattendedWinstall/blob/main/autounattend.xml) file and save it on your computer.
-2. Create a Windows 10 or 11 Bootable Installation USB drive with the Media Creation Tool or Rufus, for example. (When using Rufus, don’t select any of the checkboxes in “Customize Your Windows Experience” as it creates another answer file, we don't want that.)
+2. Create a Windows 10 or 11 Bootable Installation USB drive with the Media Creation Tool or Rufus, for example. (When using Rufus, don't select any of the checkboxes in "Customize Your Windows Experience" as it creates another answer file, we don't want that.)
    - [Download Windows 10](https://www.microsoft.com/en-us/software-download/windows10)
    - [Download Windows 11](https://www.microsoft.com/en-us/software-download/windows11)
    - [Rufus](https://rufus.ie/en/)
@@ -106,12 +108,12 @@ In short, you need to include the [autounattended.xml](https://github.com/Senexi
    - [Download Windows 10](https://www.microsoft.com/en-us/software-download/windows10)
    - [Download Windows 11](https://www.microsoft.com/en-us/software-download/windows11)
 3. Download and Install AnyBurn: [AnyBurn](https://anyburn.com/download.php)
-   - In AnyBurn, select the “Edit Image File” option.
+   - In AnyBurn, select the "Edit Image File" option.
    - Navigate to and select the Official Windows ISO file you downloaded in Step 2.
-   - Click on “Add” and select the autounattended.xml file you downloaded in Step 1 or just click and drag the autounattended.xml into the AnyBurn window.
-   - Click on “Next,” then on “Create Now.” You should be prompted to overwrite the ISO file, click on “Yes.”
+   - Click on "Add" and select the autounattended.xml file you downloaded in Step 1 or just click and drag the autounattended.xml into the AnyBurn window.
+   - Click on "Next," then on "Create Now." You should be prompted to overwrite the ISO file, click on "Yes."
    - Once the process is complete, close AnyBurn.
-4. Use this ISO file to Install Windows on a Virtual Machine OR use a program like Rufus or Ventoy to create a bootable USB flash drive with the edited Windows ISO file. (When using Rufus, don’t select any of the checkboxes in “Customize Your Windows Experience” as it creates another answer file, we don't want that.)
+4. Use this ISO file to Install Windows on a Virtual Machine OR use a program like Rufus or Ventoy to create a bootable USB flash drive with the edited Windows ISO file. (When using Rufus, don't select any of the checkboxes in "Customize Your Windows Experience" as it creates another answer file, we don't want that.)
    - [Rufus](https://rufus.ie/en/)
    - [Ventoy](https://www.ventoy.net/)
 5. Boot from the Windows Installation USB, do a clean install of Windows as normal, and the scripts will run automatically.
