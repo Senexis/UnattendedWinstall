@@ -1,4 +1,7 @@
 # Updates
+## 24/6/2024
+Reorder Runsynchronous commands in the specialize phase to load Default User Registry hive earlier.
+
 ## 23/6/2024
 First fork customization changes. Undoes some tweaks I don't want.
 

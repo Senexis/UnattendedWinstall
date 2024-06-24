@@ -52,36 +52,36 @@
 					<Description>Extracts and Executes Scripts in this XML File</Description>
 					<Path>powershell.exe -NoProfile -Command "$xml = [xml]::new(); $xml.Load('C:\Windows\Panther\unattend.xml'); $sb = [scriptblock]::Create( $xml.unattend.Extensions.ExtractScript ); Invoke-Command -ScriptBlock $sb -ArgumentList $xml;"</Path>
 				</RunSynchronousCommand>
-				<RunSynchronousCommand wcm:action="add">
+                <RunSynchronousCommand wcm:action="add">
 					<Order>2</Order>
+                    <Description>Loads the Default User Registry Hive so Changes Can be Made to It</Description>
+					<Path>reg.exe load "HKU\DefaultUser" "C:\Users\Default\NTUSER.DAT"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>3</Order>
 					<Description>Executes the remove-packages Powershell Script</Description>
 					<Path>powershell.exe -NoProfile -Command "Get-Content -LiteralPath '%TEMP%\remove-packages.ps1' -Raw | Invoke-Expression;"</Path>
 				</RunSynchronousCommand>
 				<RunSynchronousCommand wcm:action="add">
-					<Order>3</Order>
+					<Order>4</Order>
 					<Description>Executes the remove-caps Powershell Script</Description>
 					<Path>powershell.exe -NoProfile -Command "Get-Content -LiteralPath '%TEMP%\remove-caps.ps1' -Raw | Invoke-Expression;"</Path>
 				</RunSynchronousCommand>
 				<RunSynchronousCommand wcm:action="add">
-					<Order>4</Order>
+					<Order>5</Order>
 					<Description>Executes the remove-features Powershell Script</Description>
 					<Path>powershell.exe -NoProfile -Command "Get-Content -LiteralPath '%TEMP%\remove-features.ps1' -Raw | Invoke-Expression;"</Path>
 				</RunSynchronousCommand>
 				<RunSynchronousCommand wcm:action="add">
-    			<Order>5</Order>
-          <Description>Run Chris Titus WinUtil Tweaks</Description>
-          <Path>cmd.exe /c "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\wintweaks.ps1' -Raw | Invoke-Expression;" &gt;&gt;"C:\Windows\Setup\Scripts\wintweaks.log" 2&gt;&amp;1"</Path>
+                    <Order>6</Order>
+                    <Description>Run Chris Titus WinUtil Tweaks</Description>
+                    <Path>cmd.exe /c "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\wintweaks.ps1' -Raw | Invoke-Expression;" &gt;&gt;"C:\Windows\Setup\Scripts\wintweaks.log" 2&gt;&amp;1"</Path>
 				</RunSynchronousCommand>
 				<RunSynchronousCommand wcm:action="add">
-					<Order>6</Order>
+					<Order>7</Order>
 					<Description>Executes the HKLM Registry Entries Script</Description>
 					<Path>cmd.exe /c "C:\Windows\Setup\Scripts\localmachine.cmd &gt;&gt;"C:\Windows\Setup\Scripts\localmachine.log" 2&gt;&amp;1"</Path>
 				</RunSynchronousCommand>    
-                <RunSynchronousCommand wcm:action="add">
-					<Order>7</Order>
-                    <Description>Loads the Default User Registry Hive so Changes Can be Made to It</Description>
-					<Path>reg.exe load "HKU\DefaultUser" "C:\Users\Default\NTUSER.DAT"</Path>
-				</RunSynchronousCommand>
 				<RunSynchronousCommand wcm:action="add">
 					<Order>8</Order>
                     <Description>Registry Entry to Execute the HKCU Registry Entry Script the First Time a New User Logs In</Description>
